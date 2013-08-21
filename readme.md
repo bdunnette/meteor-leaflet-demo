@@ -13,7 +13,7 @@
 Tested with Webkit, Firefox, IE9, iPhone, and iPad
 
 ## Demo
-http://leaflet.meteor.com
+http://virtualscope.meteor.com
 
 ## License
 MIT/X11
