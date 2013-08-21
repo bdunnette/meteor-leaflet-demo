@@ -26,11 +26,10 @@ Template.map.rendered = ->
   # create a map in the map div, set the view to a given place and zoom
   window.map = L.map 'map', 
     doubleClickZoom: false
-  .setView([49.25044, -123.137], 13)
+  .setView([0, 0], 5)
 
-  # add a CloudMade tile layer with style #997 - use your own cloudmade api key
-  L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+  L.tileLayer "http://160.94.51.142/slides/2340/tile_{z}_{x}_{y}.jpg", 
+    attribution: 'Images &copy; University of Minnesota 2013'
   .addTo(window.map)
   
   # click on the map and will insert the latlng into the markers collection 
