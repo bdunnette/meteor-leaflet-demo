@@ -34,8 +34,14 @@ Template.map.rendered = ->
   
   # click on the map and will insert the latlng into the markers collection 
   window.map.on 'dblclick', (e) ->
-    Markers.insert
-      latlng: e.latlng
+    if Meteor.userId()
+      Markers.insert
+        latlng: e.latlng
+        zoom: window.map.getZoom()
+        created:
+          by: Meteor.user()._id
+          on: new Date().toISOString()
+        
 
   # watch the markers collection
   query = Markers.find({})
@@ -46,9 +52,10 @@ Template.map.rendered = ->
       marker = L.marker(mark.latlng)
       .addTo(window.map)
       .on 'click', (e) ->
-        m = Markers.findOne({latlng: @._latlng})
-        console.log(m)
-        Markers.remove(m._id)
+        if Meteor.userId()
+          m = Markers.findOne({latlng: @._latlng})
+          console.log(m)
+          Markers.remove(m._id)
     # when removing marker - loop through all layers on the map and remove the matching layer (marker)
     # matching based on matching lat/lon
     removed: (mark) ->

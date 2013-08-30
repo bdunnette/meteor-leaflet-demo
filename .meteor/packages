@@ -9,3 +9,5 @@ coffeescript
 leaflet
 jquery
 standard-app-packages
+accounts-ui
+accounts-google
