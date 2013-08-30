@@ -42,13 +42,17 @@ Template.map.rendered = ->
   query.observe
     # when new marker - then add to map and when on click then remove
     added: (mark) ->
+      console.log(mark)
       marker = L.marker(mark.latlng)
       .addTo(window.map)
       .on 'click', (e) ->
-        Markers.remove({latlng: @._latlng})
+        m = Markers.findOne({latlng: @._latlng})
+        console.log(m)
+        Markers.remove(m._id)
     # when removing marker - loop through all layers on the map and remove the matching layer (marker)
     # matching based on matching lat/lon
     removed: (mark) ->
+      console.log(mark)
       layers = window.map._layers
       for key, val of layers
         if !val._latlng
