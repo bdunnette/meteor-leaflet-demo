@@ -28,7 +28,7 @@ Template.map.rendered = ->
     doubleClickZoom: false
   .setView([0, 0], 5)
 
-  L.tileLayer "http://160.94.51.142/slides/2340/tile_{z}_{x}_{y}.jpg", 
+  L.tileLayer "http://160.94.51.184/slides/2340/tile_{z}_{x}_{y}.jpg", 
     attribution: 'Images &copy; University of Minnesota 2013'
   .addTo(window.map)
   
@@ -49,9 +49,11 @@ Template.map.rendered = ->
     # when new marker - then add to map and when on click then remove
     added: (mark) ->
       console.log(mark)
+      console.log(Meteor.users.find({_id: mark.created.by}).fetch())
       marker = L.marker(mark.latlng)
       .addTo(window.map)
-      .on 'click', (e) ->
+      .bindPopup(Date(mark.created.on))
+      .on 'dblclick', (e) ->
         if Meteor.userId()
           m = Markers.findOne({latlng: @._latlng})
           console.log(m)
