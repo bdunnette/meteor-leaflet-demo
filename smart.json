@@ -1,9 +1,9 @@
 {
-  "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "master"
-  },
+  "meteor": {},
   "packages": {
-    "leaflet": {}
+    "leaflet": {
+"git": "https://github.com/bevanhunt/meteor-leaflet.git",
+        "branch": "master"
+	}
   }
 }
