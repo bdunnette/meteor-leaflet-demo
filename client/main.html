@@ -4,17 +4,47 @@
 </head>
 
 <body>
+    {{> navbar}}
     {{> map}}
-    {{loginButtons}}
 </body>
 
 <template name="map">
   {{#constant}}
     <div id="container" class="container">
-      <h1 class="title">Meteor Leaflet Demo</h1>
       <div id="map" class="map"></div>
-      <div class="notice first">Double-click on map creates a marker</div>
-      <div class="notice second">Click on a marker to delete it</div>
     </div>
   {{/constant}}
+</template>
+
+<template name="navbar">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">VirtualScope</a>
+    
+  </div>
+        <p class="nav navbar-text">
+        {{#if currentUser}}
+            {{> user-help}}
+        {{else}}
+            {{> guest-help}}
+        {{/if}}
+            </p>
+    <ul class="nav navbar-nav navbar-right">
+            {{loginButtons}}
+         </ul>
+        </nav>
+</template>
+    
+<template name="user-help">
+    Double-click on slide to create a marker; Double-click on an existing marker to delete it
+</template>
+
+<template name="guest-help">
+    Please log in to edit markers
 </template>

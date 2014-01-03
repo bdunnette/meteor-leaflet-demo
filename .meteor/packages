@@ -8,6 +8,7 @@ preserve-inputs
 coffeescript
 jquery
 standard-app-packages
-accounts-ui
 accounts-google
 leaflet
+bootstrap-3
+accounts-ui-bootstrap-3

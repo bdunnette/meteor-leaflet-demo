@@ -2,8 +2,9 @@
   "meteor": {},
   "packages": {
     "leaflet": {
-"git": "https://github.com/bevanhunt/meteor-leaflet.git",
-        "branch": "master"
-	}
+      "git": "https://github.com/bevanhunt/meteor-leaflet.git",
+      "branch": "master"
+    },
+    "accounts-ui-bootstrap-3": {}
   }
 }
