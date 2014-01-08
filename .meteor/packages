@@ -10,6 +10,8 @@ jquery
 standard-app-packages
 accounts-google
 leaflet
+leaflet-draw
+leaflet-label
 bootstrap-3
 accounts-ui-bootstrap-3
 leaflet-search
