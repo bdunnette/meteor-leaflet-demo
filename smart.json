@@ -5,6 +5,11 @@
       "git": "https://github.com/bevanhunt/meteor-leaflet.git",
       "branch": "master"
     },
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "leaflet-search": {},
+    "roles": {},
+    "iron-router": {},
+    "collection-api": {},
+    "autoform": {}
   }
 }

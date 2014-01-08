@@ -1,0 +1,3 @@
+[submodule "packages/leaflet-draw"]
+	path = packages/leaflet-draw
+	url = git@github.com:bdunnette/meteor-leaflet-draw.git

@@ -12,3 +12,7 @@ accounts-google
 leaflet
 bootstrap-3
 accounts-ui-bootstrap-3
+leaflet-search
+roles
+iron-router
+collection-api
