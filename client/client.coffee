@@ -24,25 +24,26 @@ Template.map.rendered = ->
   L.Icon.Default.imagePath = 'packages/leaflet/images'
 
   # create a map in the map div, set the view to a given place and zoom
-  window.map = L.map 'map', 
-    doubleClickZoom: false
+  window.map = L.map('map')
   .setView([0, 0], 5)
 
+  if Meteor.userId()
+    drawControl = new L.Control.Draw()
+    drawControl.addTo(window.map)
+    
   L.tileLayer "http://160.94.51.184/slides/2340/tile_{z}_{x}_{y}.jpg", 
     attribution: 'Images &copy; University of Minnesota 2013'
   .addTo(window.map)
   
-  # click on the map and will insert the latlng into the markers collection 
-  window.map.on 'dblclick', (e) ->
-    if Meteor.userId()
-      Markers.insert
-        latlng: e.latlng
+  window.map.on 'draw:created', (e) ->
+    console.log(e)
+    Markers.insert
+        latlng: e.layer._latlng
         zoom: window.map.getZoom()
         created:
           by: Meteor.user()._id
           on: new Date().toISOString()
-        
-
+    
   # watch the markers collection
   query = Markers.find({})
   query.observe
